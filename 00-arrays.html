@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+
+    Qué es un array?
+    Es una lista de elementos
+    const array = [1, 'jaja', true, false];
+
+    Qué es un objeto?
+    Es una de elementos PERO cada elemento tiene un nombre clave
+    const obj = {
+        nombre: 'fulano',
+        edad: 22,
+        comidasFavoritas: [
+            'Pollo',
+            'Vegetales'
+        ]
+    }
+
+    Cuándo es mejor usar objetos o arrays?
+    Arrays cuando lo que haremos en un elemento es lo mismo que en todos los demás (la regla se puede incumplir)
+    Objetos cuando los nombres de cada elemento son importantes para el algoritmo
+
+
+    Puedo mezclar arrays con objetos o incluso objetos con arrays?
+    Sí, los arrays pueden guardar objetos. Y los objetos pueden guardar arrays entre sus propiedades
+
+
+    <!-- Códigos de los tests -->
+    <script>
+        // recibir un array e imprimir su primer elemento
+        function imprimirPrimerElemento(arr){
+            console.log(arr[0]);
+        };
+        imprimirPrimerElemento([5,7,8,10,2,3]);
+
+
+        // imprimir todos los elementos de un array
+        function imprimirElementoPorElementoArray(arr){
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i] + '-');
+            }
+        }
+        imprimirElementoPorElementoArray([5,7,8,10,2,3]);
+
+
+        // imprimir todos los elementos de un objeto
+        // el objeto intenta encontrar el NOMBRE de cada propiedad, no su posición
+        // Se tiene que convertir el objeto a un array
+        // la función Object.values() crea un array con los VALORES de un objeto, no de sus nombres(keys)
+        // Object.values(obj)
+        // Object.keys() -> nos devuelve todas las claves, no los valores del array
+        // Object.entries() -> nos devuelve las claves y valores en un array matriz
+        function imprimirElementoPorElementoObjeto(obj){
+            const arr = Object.values(obj);
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+        }
+        imprimirElementoPorElementoObjeto(obj);
+
+
+    </script>
+
+    
+<script>
+
+    // Funciones varias de arrays propias del lenguaje
+
+    [1, 2, 3].push(4);   // [1, 2, 3, 4]
+    [1, 2, 3].pop();   // [1, 2]
+    [1, 2, 3].shift();   // [2, 3]
+    [1, 2, 3].unshift(0);   // [0, 1, 2, 3]
+    ['a', 'b'].concat('c');   // ['a', 'b', 'c']
+    ['a', 'b', 'c'].join('-');   // a-b-c
+    ['a', 'b', 'c'].slice(1);   // ['b', 'c']
+    ['a', 'b', 'c'].indexOf('b');   // 1
+    ['a', 'b', 'c'].includes('c');   // true
+    [3, 5, 6, 8].find( (n) => n % 2 === 0 );   // 6
+    [2, 4, 3, 5].findIndex( (n) => n % 2 !== 0 );   // 2
+    [3, 4, 8, 6].map( (n) => n * 2 );   // [6, 8, 16, 12]
+    [1, 4, 7, 8].filter( (n) => n % 2 === 0 );   // [4, 8]
+    [2, 4, 3, 7].reduce( (acc, cur) => acc + cur );   // 16
+    [2, 3, 4, 5].every( (x) => x < 6 );   // true
+    [3, 5, 6, 8].some( (n) => n > 6 );   // true
+    [1, 2, 3, 4].reverse();   // [4, 3, 2, 1]
+    [3, 5, 7, 8].at(-2);   // 7
+
+</script>
+
+
+</body>
+</html>
